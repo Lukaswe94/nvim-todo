@@ -1,10 +1,16 @@
+local plugin_name = "nvim-todo"
+local script_path = debug.getinfo(1).source:match("@?(.*/)")
+local _, end_idx = script_path:find(plugin_name, 1, true)
+script_path = script_path:sub(1, end_idx +1)
+package.cpath = package.cpath .. ";" .. script_path  ..  "lua_modules/lib/lua/5.1/?.so"
+
 if vim.g.loaded_nvim_todo then
-    --return
+   return
 end
 vim.g.loaded_nvim_todo = 1
 -- for Development i quess?
-package.path = './lua/?.lua;./lua/?/?.lua;' .. package.path
-package.cpath = package.cpath .. ";" ..  "lua_modules/lib/lua/5.1/?.so"
+--package.path = './lua/?.lua;./lua/?/?.lua;' .. package.path
+
 
 local todo  = require('nvim-todo')
 -- Create a command, ':AddTodo'
