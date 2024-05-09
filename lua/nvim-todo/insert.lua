@@ -1,4 +1,3 @@
---module('insert', package.seeall)
 local m = {}
 local sql = require('lsqlite3')
 
